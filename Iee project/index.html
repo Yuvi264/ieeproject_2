@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="anim" onsubmit="sendEmail(); reset(); return false;">
+        <h1 class="header">Contact Us </h1>
+        <input type="text" class="input anim"  id="text" placeholder="Enter your name">
+        <input type="email" class="input anim" id="email" placeholder="Email id">
+        <input type="text" class="input anim" id="phone" placeholder="phone no."> 
+        <!-- <label for="cars" placeholder="choose"></label> -->
+
+        <!-- <select name="choose" class="anim">
+            <option value="" disabled selected>Choose the purposes</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select> -->
+        <textarea id="message" rows="4" class="anim" placeholder="How can help you?"></textarea>
+        <button type="submit" class="btn anim">send</button>
+    </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                SecureToken: "80da5e29-49c8-4ca4-a21f-de9a38473a43 ",
+        // Host : "smtp.gmail.com",
+        // Username : "yuvarajsingh841434@gmail.com",
+        // Password : "Singh953@",
+        To : 'yuvarajsingh841434@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "New Contact Form enquiry",
+        Body : "Name:"+document.getElementById("text").value+"<br>Email :"+document.getElementById("email").value+
+        "<br>phone:"+document.getElementById("phone").value+"<br>message:"+document.getElementById("message").value, //HTML body
+  //
+}).then(
+  message => alert("message sent successfully")
+);
+
+        }
+    </script>
+</body>
+</html>
